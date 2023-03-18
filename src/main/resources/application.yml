@@ -19,8 +19,8 @@ spring:
   jpa:
 
     # Отключаем автогенерацию схемы
-    generate-ddl: false
-    #generate-ddl: true
+#    generate-ddl: false
+    generate-ddl: true
 
     hibernate:
       ddl-auto: none
