@@ -1,7 +1,7 @@
 package ru.tsutmb.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.tsutmb.domain.Author;
+import ru.tsutmb.entities.Author;
 
 public interface AuthorDao extends JpaRepository<Author, Integer> {
 

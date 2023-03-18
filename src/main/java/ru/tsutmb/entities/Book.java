@@ -1,4 +1,4 @@
-package ru.tsutmb.domain;
+package ru.tsutmb.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

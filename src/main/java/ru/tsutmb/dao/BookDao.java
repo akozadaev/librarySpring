@@ -2,7 +2,7 @@ package ru.tsutmb.dao;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.tsutmb.domain.Book;
+import ru.tsutmb.entities.Book;
 
 
 import java.util.List;
