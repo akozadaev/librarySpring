@@ -8,7 +8,7 @@ import ru.tsutmb.entities.Comment;
 
 import java.util.List;
 
-public interface CommentDao extends JpaRepository<Comment, Integer> {
+public interface CommentRepositoryo extends JpaRepository<Comment, Integer> {
 
     @Modifying
     @Query("update Comment c set c.content = :content where c.id = :id")

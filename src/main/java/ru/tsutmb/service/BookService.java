@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
-import ru.tsutmb.repository.AuthorDao;
-import ru.tsutmb.repository.BookDao;
-import ru.tsutmb.repository.GenreDao;
+import ru.tsutmb.repository.AuthorRepository;
+import ru.tsutmb.repository.BookRepository;
+import ru.tsutmb.repository.GenreRepository;
 import ru.tsutmb.entities.Author;
 import ru.tsutmb.entities.Book;
 import ru.tsutmb.entities.Genre;
@@ -18,9 +18,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BookService implements BookServiceInterface {
 
-    private final GenreDao genreDao;
-    private final BookDao bookDao;
-    private final AuthorDao authorDao;
+    private final GenreRepository genreRepository;
+    private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
     private final AuthorServiceInterface authorServiceInterface;
     private final GenreServiceInterface genreServiceInterface;
 
@@ -30,14 +30,14 @@ public class BookService implements BookServiceInterface {
                        String nameGenre,
                        String nameAuthor) {
 
-        Author author = authorDao.findByName(nameAuthor);
+        Author author = authorRepository.findByName(nameAuthor);
         if (ObjectUtils.isEmpty(author)) {
             author = Author.builder()
                     .name(nameAuthor)
                     .build();
         }
 
-        Genre genre = genreDao.findByName(nameGenre);
+        Genre genre = genreRepository.findByName(nameGenre);
         if (ObjectUtils.isEmpty(genre)) {
             genre = Genre.builder()
                     .name(nameGenre)
@@ -50,7 +50,7 @@ public class BookService implements BookServiceInterface {
                 .genre(genre)
                 .build();
 
-        return bookDao.save(book);
+        return bookRepository.save(book);
     }
 
 
@@ -68,31 +68,31 @@ public class BookService implements BookServiceInterface {
                 .genre(genreServiceInterface.getByName(nameGenre))
                 .build();
 
-        return bookDao.save(book);
+        return bookRepository.save(book);
     }
 
     @Override
     public List<Book> getAll() {
 
-        return bookDao.findAll();
+        return bookRepository.findAll();
     }
 
     @Override
     public Book getById(int id) {
 
-        return bookDao.getById(id);
+        return bookRepository.getById(id);
     }
 
     @Override
     public Book getByName(String name) {
 
-        return bookDao.findByName(name);
+        return bookRepository.findByName(name);
     }
 
     @Transactional
     @Override
     public void deleteById(int id) {
 
-        bookDao.deleteById(id);
+        bookRepository.deleteById(id);
     }
 }

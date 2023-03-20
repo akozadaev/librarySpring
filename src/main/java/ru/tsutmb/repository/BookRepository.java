@@ -7,7 +7,7 @@ import ru.tsutmb.entities.Book;
 
 import java.util.List;
 
-public interface BookDao extends JpaRepository<Book, Integer> {
+public interface BookRepository extends JpaRepository<Book, Integer> {
 
     @Override
     @EntityGraph(attributePaths = {"genre", "author", "comments"}) // Решение N + 1, по сути внутри join

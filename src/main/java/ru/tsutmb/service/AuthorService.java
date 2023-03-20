@@ -3,7 +3,7 @@ package ru.tsutmb.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.tsutmb.repository.AuthorDao;
+import ru.tsutmb.repository.AuthorRepository;
 import ru.tsutmb.entities.Author;
 
 import java.util.List;
@@ -12,13 +12,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AuthorService implements AuthorServiceInterface {
 
-    private final AuthorDao authorDao;
+    private final AuthorRepository authorRepository;
 
     @Override
     @Transactional
     public Author insert(Author author) {
 
-        return authorDao.save(author);
+        return authorRepository.save(author);
     }
 
 
@@ -32,31 +32,31 @@ public class AuthorService implements AuthorServiceInterface {
                 .name(newNameAuthor)
                 .build();
 
-        return authorDao.save(author);
+        return authorRepository.save(author);
     }
 
     @Override
     public List<Author> getAll() {
 
-        return authorDao.findAll();
+        return authorRepository.findAll();
     }
 
     @Override
     public Author getById(int id) {
 
-        return authorDao.getById(id);
+        return authorRepository.getById(id);
     }
 
     @Override
     public Author getByName(String nameAuthor) {
 
-        return authorDao.findByName(nameAuthor);
+        return authorRepository.findByName(nameAuthor);
     }
 
     @Override
     @Transactional
     public void deleteById(int id) {
 
-        authorDao.deleteById(id);
+        authorRepository.deleteById(id);
     }
 }

@@ -3,7 +3,7 @@ package ru.tsutmb.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.tsutmb.repository.GenreDao;
+import ru.tsutmb.repository.GenreRepository;
 import ru.tsutmb.entities.Genre;
 
 
@@ -13,13 +13,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GenreService implements GenreServiceInterface {
 
-    private final GenreDao genreDao;
+    private final GenreRepository genreRepository;
 
     @Override
     @Transactional
     public Genre insert(Genre genre) {
 
-        return genreDao.save(genre);
+        return genreRepository.save(genre);
     }
 
     @Override
@@ -31,31 +31,31 @@ public class GenreService implements GenreServiceInterface {
                 .name(name)
                 .build();
 
-        return genreDao.save(genre);
+        return genreRepository.save(genre);
     }
 
     @Override
     public List<Genre> getAll() {
 
-        return genreDao.findAll();
+        return genreRepository.findAll();
     }
 
     @Override
     public Genre getById(int id) {
 
-        return genreDao.getById(id);
+        return genreRepository.getById(id);
     }
 
     @Override
     public Genre getByName(String name) {
 
-        return genreDao.findByName(name);
+        return genreRepository.findByName(name);
     }
 
     @Override
     @Transactional
     public void deleteById(int id) {
 
-        genreDao.deleteById(id);
+        genreRepository.deleteById(id);
     }
 }
