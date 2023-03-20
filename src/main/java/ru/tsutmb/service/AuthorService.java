@@ -3,7 +3,7 @@ package ru.tsutmb.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.tsutmb.dao.AuthorDao;
+import ru.tsutmb.repository.AuthorDao;
 import ru.tsutmb.entities.Author;
 
 import java.util.List;

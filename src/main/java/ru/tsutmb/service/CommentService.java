@@ -3,8 +3,8 @@ package ru.tsutmb.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.tsutmb.dao.BookDao;
-import ru.tsutmb.dao.CommentDao;
+import ru.tsutmb.repository.BookDao;
+import ru.tsutmb.repository.CommentDao;
 import ru.tsutmb.entities.Book;
 import ru.tsutmb.entities.Comment;
 

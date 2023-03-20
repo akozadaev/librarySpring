@@ -1,4 +1,4 @@
-package ru.tsutmb.dao;
+package ru.tsutmb.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import ru.tsutmb.entities.Author;
